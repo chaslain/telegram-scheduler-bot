@@ -13,6 +13,8 @@ class CredentialManager:
     def getChadId() -> str:
         if CredentialManager.chat_id == None:
             CredentialManager.chat_id = os.getenv("CHAT_ID")
+            if (CredentialManager.chat_id == None):
+                exception("NO CHAT ID PROVIDED")
         return CredentialManager.chat_id
 
     def getCredential() -> str:
