@@ -1,8 +1,6 @@
-import datetime
 from logging import exception
 import telegram
-import CredentialManager
-import FileCandidateManager
+import bot.FileCandidateManager
 import os
 
 class Main:
@@ -15,7 +13,7 @@ class Main:
         return self.bot
     
     def main(self):
-        fcm = FileCandidateManager.FileCandidateManager("data")
+        fcm = bot.FileCandidateManager.FileCandidateManager("data")
         filePath = fcm.getCandidateFileName(self.weekday)
 
         fileContent = None
