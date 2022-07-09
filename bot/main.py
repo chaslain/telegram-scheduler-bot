@@ -13,11 +13,11 @@ class Main:
         return self.bot
     
     def main(self):
-        fcm = bot.FileCandidateManager.FileCandidateManager("data")
+        fcm = bot.FileCandidateManager.FileCandidateManager("/mnt/data")
         filePath = fcm.getCandidateFileName(self.weekday)
 
         fileContent = None
-        with open("data/" + filePath, "rb") as file:
+        with open("/mnt/data/" + filePath, "rb") as file:
             fileContent = file.readlines()
 
         if not os.path.exists("data"):
