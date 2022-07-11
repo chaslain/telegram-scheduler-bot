@@ -17,6 +17,8 @@ class Main:
         fcm = bot.FileCandidateManager.FileCandidateManager("data")
         filePath = fcm.getCandidateFileName(self.weekday)
 
+        if filePath == None:
+            return
         file = open(filePath, "rb")
 
         if not os.path.exists("data"):
