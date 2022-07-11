@@ -24,7 +24,8 @@ class Main:
         
         try:
             self.getBot().send_document(chat_id=bot.CredentialManager.CredentialManager.getChatId(), document=file)
-        except:
+        except BaseException as e:
+            print(e)
             pass;
         
         file.close()
