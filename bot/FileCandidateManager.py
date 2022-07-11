@@ -14,6 +14,9 @@ class FileCandidateManager:
         directory = FileCandidateManager.getWeekdayDirectory(weekday)
 
         files = os.listdir(self.directory + "/" + directory)
+
+        if len(files) == 0:
+            return None
         item = math.floor(random() * len(files))
         return self.directory + '/' + directory + '/' + files[item]
 
