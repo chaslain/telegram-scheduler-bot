@@ -10,7 +10,7 @@ class CredentialManager:
     token = None
     chat_id = None
 
-    def getChadId() -> str:
+    def getChatId() -> str:
         if CredentialManager.chat_id == None:
             CredentialManager.chat_id = os.getenv("CHAT_ID")
             if (CredentialManager.chat_id == None):

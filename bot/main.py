@@ -1,6 +1,7 @@
 from logging import exception
 import telegram
 import bot.FileCandidateManager
+import bot.CredentialManager
 import os
 
 class Main:
@@ -16,11 +17,14 @@ class Main:
         fcm = bot.FileCandidateManager.FileCandidateManager("data")
         filePath = fcm.getCandidateFileName(self.weekday)
 
-        fileContent = None
-        with open("data/" + filePath, "rb") as file:
-            fileContent = file.readlines()
+        file = open(filePath, "rb")
 
         if not os.path.exists("data"):
             exception("No data provided.")
         
-        self.getBot().send_document(fileContent)
+        try:
+            self.getBot().send_document(chat_id=bot.CredentialManager.CredentialManager.getChatId(), document=file)
+        except:
+            pass;
+        
+        file.close()
