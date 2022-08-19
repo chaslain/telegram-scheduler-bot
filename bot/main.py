@@ -25,7 +25,7 @@ class Main:
             exception("No data provided.")
         
         try:
-            self.getBot().send_document(chat_id=bot.CredentialManager.CredentialManager.getChatId(), document=file)
+            self.getBot().send_video(chat_id=bot.CredentialManager.CredentialManager.getChatId(), video=file)
         except BaseException as e:
             print(e)
             pass;
