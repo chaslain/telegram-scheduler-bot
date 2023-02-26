@@ -14,18 +14,18 @@ class Main:
         return self.bot
     
     def main(self):
-        fcm = bot.FileCandidateManager.FileCandidateManager("data")
+        fcm = bot.FileCandidateManager.FileCandidateManager("data2")
         filePath = fcm.getCandidateFileName(self.weekday)
 
         if filePath == None:
             return
-        file = open(filePath, "rb")
-
-        if not os.path.exists("data"):
-            exception("No data provided.")
+        
+        data = None
+        with open(filePath, "r") as file:
+            data = file.read()
         
         try:
-            self.getBot().send_video(chat_id=bot.CredentialManager.CredentialManager.getChatId(), video=file)
+            self.getBot().send_video(chat_id=bot.CredentialManager.CredentialManager.getChatId(), video=data)
         except BaseException as e:
             print(e)
             pass;

@@ -3,7 +3,6 @@
 import math
 import os
 from random import random
-from sys import path
 
 
 class FileCandidateManager:
